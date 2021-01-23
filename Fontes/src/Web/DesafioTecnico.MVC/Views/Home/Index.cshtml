@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Menu Taxa - API 1</h1>
+    <p>
+        1) Retorna taxa de juros <br />
+        API responde pelo path relativo "/taxaJuros" <br />
+        Retorna o juros de 1% ou 0,01 (fixo no código)<br />
+        Exemplo: /taxaJuros Resultado esperado: 0,01<br />
+    </p>
+    <h1 class="display-4">Menu Juros - API 2</h1>
+    <p>
+        1) Calcula Juros <br />
+        API responde pelo path relativo "/calculajuros" <br />
+        Ela faz um cálculo em memória, de juros compostos, conforme regra: Valor Final = Valor Inicial * (1 + juros) ^ Tempo <br />
+        Valor inicial é um decimal recebido como parâmetro. <br />
+        Valor do Juros deve ser consultado na API 1. <br />
+        Tempo é um inteiro, que representa meses, também recebido como parâmetro. <br />
+        ^ representa a operação de potência. <br />
+        Resultado final deve ser truncado (sem arredondamento) em duas casas decimais. <br />
+        Exemplo: /calculajuros?valorinicial=100&meses=5 Resultado esperado: 105,10 <br />
+    </p>
+</div>
+
+

@@ -1,0 +1,52 @@
+﻿@using DesafioTecnico.MVC.Extensions
+@model DesafioTecnico.MVC.Models.JurosViewModel
+
+@{
+    ViewData["Title"] = "Calcular Juros";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-10">
+        <form enctype="multipart/form-data" asp-action="Index">
+
+            <vc:Summary></vc:Summary>
+
+            <div class="form-group">
+                <label asp-for="ValorInicial" class="control-label"></label>
+                <input asp-for="ValorInicial" class="form-control" />
+                <span asp-validation-for="ValorInicial" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Meses" class="control-label"></label>
+                <input asp-for="Meses" class="form-control" />
+                <span asp-validation-for="Meses" class="text-danger"></span>
+            </div>
+
+            @if (Model != null && Model.ValorFinal > 0)
+            {
+
+                <div class="form-group">
+                    <label asp-for="ValorTaxaJuros" class="control-label"></label>
+                    <input asp-for="ValorTaxaJuros" class="form-control" disabled />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ValorFinal" class="control-label"></label>
+                    <input asp-for="ValorFinal" class="form-control" disabled />
+                </div>
+            }
+
+            <div class="form-group">
+                <input type="submit" value="Calcular" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

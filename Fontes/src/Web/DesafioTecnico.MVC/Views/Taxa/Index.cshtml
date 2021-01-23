@@ -1,0 +1,22 @@
+﻿@model DesafioTecnico.MVC.Models.TaxaViewModel
+
+@{
+    ViewData["Title"] = "Taxa de juros atual";
+}
+<h1>@ViewData["Title"]</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-10">
+        <form asp-action="Index">
+
+            <vc:Summary></vc:Summary>
+
+            <div class="form-group">
+                <label asp-for="ValorTaxa" class="control-label"></label>
+                @Html.DisplayFor(model => model.ValorTaxa)
+            </div>
+
+        </form>
+    </div>
+</div>
