@@ -1,8 +1,8 @@
-version: "3"
+#version: "3"
 services: 
     web-mvc: 
         image: luisfernandoferracin/showmethecode-mvc:latest
-        #container_name: showmethecode-mvc
+        container_name: showmethecode-mvc
         build:
             context: "../src"
             dockerfile: "./Web/DesafioTecnico.MVC/Dockerfile"
