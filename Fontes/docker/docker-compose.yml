@@ -1,4 +1,4 @@
-Versão : " {{site.compose_file_v3}} "
+version: "{{ site.compose_file_v3 }}"
 
 services: 
     web-mvc: 
@@ -55,5 +55,3 @@ services:
             - "443:443"
         depends_on:
             - web-mvc
-volumes:
-    dpkeys:
