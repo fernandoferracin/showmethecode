@@ -3,7 +3,7 @@ version: "3"
 services: 
     web-mvc: 
         image: luisfernandoferracin/showmethecode-mvc:latest
-        container_name: showmethecode-mvc
+        #container_name: showmethecode-mvc
         build:
             context: "../src"
             dockerfile: "./Web/DesafioTecnico.MVC/Dockerfile"
@@ -55,3 +55,5 @@ services:
             - "443:443"
         depends_on:
             - web-mvc
+volumes:
+    dpkeys:
