@@ -1,4 +1,4 @@
-version: "{{ site.compose_file_v3 }}"
+#version: "{{ site.compose_file_v3 }}"
 
 services: 
     web-mvc: 
