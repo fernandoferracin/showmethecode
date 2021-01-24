@@ -1,20 +1,5 @@
-#version: "{{ site.compose_file_v3 }}"
-
-services: 
-    web-mvc: 
-        image: luisfernandoferracin/showmethecode-mvc:latest
-        #container_name: showmethecode-mvc
-        build:
-            context: "../src"
-            dockerfile: "./Web/DesafioTecnico.MVC/Dockerfile"
-        restart: always
-        
-        environment:
-            - ASPNETCORE_ENVIRONMENT=Production
-            - ASPNETCORE_URLS=http://*:5001
-        depends_on:
-            - api-taxa
-            - api-juros
+version: "3.1"
+services:
     api-taxa: 
         image: luisfernandoferracin/taxajuros:latest
         container_name: taxa-juros-api
@@ -43,6 +28,19 @@ services:
             - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/showmethecode.certificate.pfx
         volumes:
             - ./certs:/https:ro
+    web-mvc: 
+        image: luisfernandoferracin/showmethecode-mvc:latest
+        #container_name: showmethecode-mvc
+        build:
+            context: "../src"
+            dockerfile: "./Web/DesafioTecnico.MVC/Dockerfile"
+        restart: always        
+        environment:
+            - ASPNETCORE_ENVIRONMENT=Production
+            - ASPNETCORE_URLS=http://*:5001
+        depends_on:
+            - api-taxa
+            - api-juros
     web-server:
         image: luisfernandoferracin/showmethecode:latest
         container_name: showmethecode    
@@ -55,3 +53,5 @@ services:
             - "443:443"
         depends_on:
             - web-mvc
+volumes:
+    dpkeys:
